@@ -1,0 +1,13 @@
+flowchart LR
+  subgraph Coleta
+    A[APIs (Yahoo, B3, Binance, etc)] --> B[Limpagem de dados]
+  end
+  subgraph Análise
+    B --> C[Feature Engineering]
+    C --> D[Modelagem (XGBoost, RF, LSTM, etc.)]
+    D --> E[Validação (walk-forward, purga)]
+  end
+  subgraph Execução
+    E --> F[Geração de sinais (threshold, sizing)]
+    F --> G[Backtest (simulação com custos)]
+  end
